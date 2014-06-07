@@ -1,4 +1,3 @@
-DROP TABLE datos_crudos2;
 CREATE TABLE datos_crudos2(
   FOLIO VARCHAR(13) NOT NULL
 , FECHA VARCHAR(13)
