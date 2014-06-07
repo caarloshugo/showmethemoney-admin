@@ -22,6 +22,15 @@ class Api extends CI_Controller {
 		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 	
+	/*Metodo facturas*/
+	public function factura($id_factura) {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->factura($id_factura);
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
 	/*metodo index - redirect a denuncias*/
 	public function index() {
 		header('Location: ' . site_url('admin/facturas'));
