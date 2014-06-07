@@ -86,6 +86,10 @@ class showme_Model extends CI_Model  {
 			left join legisladores ON facturas.id_legislador=legisladores.id_legislador 
 			where facturas.id_legislador is not NULL and facturas.id_legislador != 0 group by id_legislador order by monto desc limit 5'
 		);
+		
+		$data = $query->result_array();
+		
+		return $data;
 	}
 	
 	public function ranking_conceptos() {
