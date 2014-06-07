@@ -49,6 +49,9 @@ strong { font-size:16px; }
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="<?php echo site_url('admin/conceptos')?>">
 				<?php if($this->uri->segment(2) == "conceptos") { ?><strong>Conceptos</strong><?php } else { ?>Conceptos<?php } ?>
+			</a> |
+			<a href="<?php echo site_url('admin/legisladores')?>">
+				<?php if($this->uri->segment(2) == "legisladores") { ?><strong>Legisladores</strong><?php } else { ?>Legisladores<?php } ?>
 			</a>
 		</span>
 	</div>
