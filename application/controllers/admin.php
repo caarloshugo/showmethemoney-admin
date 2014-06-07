@@ -129,12 +129,12 @@ class Admin extends CI_Controller {
 		
 		/*Tabla y título*/
 		$crud->set_theme('datatables');
-		$crud->set_table('autoridades');
-		$crud->set_subject('Autoridades');
+		$crud->set_table('conceptos');
+		$crud->set_subject('Conceptos');
 		
 		/*Columnas(Vista), campos y campos obligatorios*/
-		$crud->columns('id_autoridad', 'nombre');
-		$crud->required_fields('nombre');
+		$crud->columns('id_concepto', 'descripcion');
+		$crud->required_fields('descripcion');
 		
 		$output = $crud->render();
 		
