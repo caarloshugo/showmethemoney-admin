@@ -31,12 +31,14 @@ class showme_Model extends CI_Model  {
 	
 	public function facturas() {
 		$query = $this->db->query('
-			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, solicitudes.folio as folio_solicitud from facturas 
+			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
+			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
-			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud
-			'
+			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
+			left join legisladores ON facturas.id_legislador=legisladores.id_legislador'
 		);
-		$data  =  $query->result_array();
+		
+		$data = $query->result_array();
 		
 		return $data;
 	}
