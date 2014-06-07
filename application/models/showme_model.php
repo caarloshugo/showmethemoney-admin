@@ -59,7 +59,7 @@ class showme_Model extends CI_Model  {
 	
 	public function conceptos() {
 		$query = $this->db->query('
-			select facturas.id_concepto, sum(monto), conceptos.descripcion as concepto from facturas 
+			select facturas.id_concepto, sum(monto) as monto, conceptos.descripcion as concepto from facturas 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto group by id_concepto'
 		);
 		
