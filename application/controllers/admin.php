@@ -151,6 +151,12 @@ class Admin extends CI_Controller {
 		$crud->set_table('solicitudes');
 		$crud->set_subject('Solicitudes');
 		
+		$crud->display_as('file_url_solicitud', 'Documento de la Solicitud');
+		$crud->set_field_upload('file_url_solicitud', 'assets/uploads/files');
+		
+		$crud->display_as('file_url_respuesta', 'Documento de la Respuesta');
+		$crud->set_field_upload('file_url_respuesta', 'assets/uploads/files');
+		
 		/*Columnas(Vista), campos y campos obligatorios*/
 		$crud->columns('id_solicitud', 'folio', 'fecha_solicitud', 'file_url_solicitud', 'file_url_respuesta');
 		$crud->required_fields('nombre');
