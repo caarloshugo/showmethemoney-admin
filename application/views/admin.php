@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>¿Quién compró? Plataforma web de información sobre el uso del dinero público en el Congreso de México</title>
+	<title>Show me the money MX - Plataforma web de información sobre el uso del dinero público en el Congreso de México</title>
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />

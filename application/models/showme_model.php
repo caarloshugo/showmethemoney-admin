@@ -67,4 +67,15 @@ class showme_Model extends CI_Model  {
 		
 		return $data;
 	}
+	
+	public function legisladores() {
+		$query = $this->db->query('
+			select facturas.id_legislador, sum(monto) as monto, conceptos.descripcion as concepto from facturas 
+			left join conceptos ON facturas.id_concepto=conceptos.id_concepto group by id_concepto'
+		);
+		
+		$data = $query->result_array();
+		
+		return $data;
+	}
 }
