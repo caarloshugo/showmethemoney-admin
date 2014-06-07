@@ -30,7 +30,7 @@ class showme_Model extends CI_Model  {
 	}
 	
 	public function facturas() {
-		$query = $this->db->query('select * from facturas left join conceptos ON facturas.id_concepto=table2.conceptos');
+		$query = $this->db->query('select * from facturas left join conceptos ON facturas.id_concepto=conceptos.id_concepto');
 		$data  =  $query->result_array();
 		
 		return $data;
