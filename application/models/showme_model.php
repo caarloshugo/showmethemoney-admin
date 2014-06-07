@@ -33,6 +33,6 @@ class showme_Model extends CI_Model  {
 		$query = $this->db->query('select * from facturas');	
 		$data  =  $query->result_array();
 		
-		die(var_dump($data));
+		return $data;
 	}
 }
