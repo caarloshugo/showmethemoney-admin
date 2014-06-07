@@ -110,8 +110,13 @@ class Admin extends CI_Controller {
 		$crud->display_as('file_url_factura', 'Documento de la factura');
 		$crud->set_field_upload('file_url_factura', 'assets/uploads/files');
 		
+		$crud->display_as('rfc', 'RFC');
+		
+		$crud->display_as('id_solicitud', 'Solicitud de información');
+		$crud->set_relation('id_solicitud', 'solicitudes', 'folio');
+		
 		/*Columnas(Vista), campos y campos obligatorios*/
-		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle');
+		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle', 'rfc');
 		
 		$output = $crud->render();
 		$this->_example_output($output);
