@@ -118,6 +118,8 @@ class Admin extends CI_Controller {
 		/*Columnas(Vista), campos y campos obligatorios*/
 		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle', 'rfc');
 		
+		$crud->required_fields('folio', 'monto', 'rfc', 'file_url_factura', 'id_solicitud');
+		
 		$output = $crud->render();
 		$this->_example_output($output);
 	}
@@ -159,7 +161,7 @@ class Admin extends CI_Controller {
 		
 		/*Columnas(Vista), campos y campos obligatorios*/
 		$crud->columns('id_solicitud', 'folio', 'fecha_solicitud', 'file_url_solicitud', 'file_url_respuesta');
-		$crud->required_fields('nombre');
+		$crud->required_fields('folio', 'file_url_solicitud', 'fecha_solicitud');
 		
 		$output = $crud->render();
 		
