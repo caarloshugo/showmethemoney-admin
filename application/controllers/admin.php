@@ -116,7 +116,7 @@ class Admin extends CI_Controller {
 		$crud->set_relation('id_solicitud', 'solicitudes', 'folio');
 		
 		/*Columnas(Vista), campos y campos obligatorios*/
-		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle', 'rfc');
+		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle', 'rfc', 'razon_social');
 		
 		$crud->required_fields('folio', 'monto', 'rfc', 'file_url_factura', 'id_solicitud');
 		
