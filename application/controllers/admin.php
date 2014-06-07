@@ -165,6 +165,9 @@ class Admin extends CI_Controller {
 		$crud->set_table('legisladores');
 		$crud->set_subject('Legisladores');
 		
+		$crud->display_as('id_partido', 'Partido politico');
+		$crud->set_relation('id_partido', 'partidos_politicos', 'nombre');
+		
 		/*Columnas(Vista), campos y campos obligatorios*/
 		$crud->columns('id_legislador', 'id_partido', 'nombre');
 		$crud->required_fields('nombre');
