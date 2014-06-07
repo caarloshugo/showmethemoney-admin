@@ -31,7 +31,7 @@ class Api extends CI_Controller {
 		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 	
-	/*Metodo por ramos*/
+	/*Metodo por conceptos*/
 	public function conceptos() {
 		$this->load->model('showme_model');
 		$data = $this->showme_model->conceptos();
@@ -44,6 +44,24 @@ class Api extends CI_Controller {
 	public function legisladores() {
 		$this->load->model('showme_model');
 		$data = $this->showme_model->legisladores();
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
+	/*Metodo por Ranking legisladores*/
+	public function ranking_legisladores() {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->ranking_legisladores();
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
+	/*Metodo por Ranking conceptos*/
+	public function ranking_conceptos() {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->ranking_conceptos();
 		
 		header('Content-Type: application/json');
 		echo json_encode($data, JSON_NUMERIC_CHECK);

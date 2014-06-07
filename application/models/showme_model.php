@@ -79,4 +79,23 @@ class showme_Model extends CI_Model  {
 		
 		return $data;
 	}
+	
+	public function ranking_legisladores() {
+		$query = $this->db->query('
+			select facturas.id_legislador, sum(monto) as monto, legisladores.nombre as legislador from facturas 
+			left join legisladores ON facturas.id_legislador=legisladores.id_legislador 
+			where facturas.id_legislador is not NULL and facturas.id_legislador != 0 group by id_legislador order by monto desc limit 5'
+		);
+	}
+	
+	public function ranking_conceptos() {
+		$query = $this->db->query('
+			select facturas.id_concepto, sum(monto) as monto, conceptos.descripcion as concepto from facturas 
+			left join conceptos ON facturas.id_concepto=conceptos.id_concepto group by id_concepto order by monto desc limit 5'
+		);
+		
+		$data = $query->result_array();
+		
+		return $data;
+	}
 }
