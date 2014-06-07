@@ -71,7 +71,7 @@ class showme_Model extends CI_Model  {
 	public function legisladores() {
 		$query = $this->db->query('
 			select facturas.id_legislador, sum(monto) as monto, legisladores.nombre as legislador from facturas 
-			left join legisladores ON facturas.id_legislador=legisladores.id_legislador group by id_legislador'
+			left join legisladores ON facturas.id_legislador=legisladores.id_legislador group by id_legislador where id_legislador is not null'
 		);
 		
 		$data = $query->result_array();
