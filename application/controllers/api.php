@@ -16,7 +16,7 @@ class Api extends CI_Controller {
 	/*Metodo facturas*/
 	public function facturas() {
 		$this->load->model('showme_model');
-		$user = $this->showme_model->isUser(trim(str_replace("'","",$_POST["email"])), md5($_POST["pwd"]));
+		$user = $this->showme_model->facturas();
 	}
 	
 	/*metodo index - redirect a denuncias*/
