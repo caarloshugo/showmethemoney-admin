@@ -28,4 +28,11 @@ class showme_Model extends CI_Model  {
 			return false;
 		}
 	}
+	
+	public function facturas() {
+		$query = $this->db->query('select * from facturas');	
+		$data  =  $query->result_array();
+		
+		die(var_dump($data));
+	}
 }
