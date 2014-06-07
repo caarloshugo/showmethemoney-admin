@@ -10,11 +10,11 @@ class Admin extends CI_Controller {
 		//Helpers
 		$this->load->helper('url');
 		$this->load->helper('date');
-die("ok");
+
 		$this->load->library('grocery_CRUD');
 		
-		
-		die("ok");
+		ini_set("session.cookie_lifetime", "14400");
+		ini_set("session.gc_maxlifetime",  "14400");
 		session_start();
 	}
 
