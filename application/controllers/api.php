@@ -22,10 +22,19 @@ class Api extends CI_Controller {
 		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 	
-	/*Metodo facturas*/
+	/*Metodo factura - parametro id factura*/
 	public function factura($id_factura) {
 		$this->load->model('showme_model');
 		$data = $this->showme_model->factura($id_factura);
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
+	/*Metodo por ramos*/
+	public function conceptos() {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->conceptos();
 		
 		header('Content-Type: application/json');
 		echo json_encode($data, JSON_NUMERIC_CHECK);

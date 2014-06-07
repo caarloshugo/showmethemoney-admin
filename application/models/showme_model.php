@@ -56,4 +56,15 @@ class showme_Model extends CI_Model  {
 		
 		return $data;
 	}
+	
+	public function conceptos() {
+		$query = $this->db->query('
+			select facturas.id_concepto, sum(monto), conceptos.descripcion as conceptos from facturas 
+			left join conceptos ON facturas.id_concepto=conceptos.id_concepto group by id_concepto'
+		);
+		
+		$data = $query->result_array();
+		
+		return $data;
+	}
 }
