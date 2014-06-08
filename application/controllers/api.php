@@ -67,6 +67,24 @@ class Api extends CI_Controller {
 		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 	
+	/*Metodo por Ranking conceptos*/
+	public function concepto($id_concepto) {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->concepto($id_concepto);
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
+	/*Metodo por Ranking conceptos*/
+	public function legislador($id_legislador) {
+		$this->load->model('showme_model');
+		$data = $this->showme_model->legislador($id_legislador);
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+	
 	/*metodo index - redirect a denuncias*/
 	public function index() {
 		header('Location: ' . site_url('admin/facturas'));

@@ -18,6 +18,7 @@ class showme_Model extends CI_Model  {
 		}
 	}
 	
+	/*Check if user exists*/
 	public function isUser($email = "", $password = "") {
 		$query = $this->db->get_where('users', array('email' => $email, 'pwd' => $password));
 		$row   = $query->row(0);
@@ -29,6 +30,7 @@ class showme_Model extends CI_Model  {
 		}
 	}
 	
+	/*Busca todas las facturas*/
 	public function facturas() {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
@@ -43,6 +45,7 @@ class showme_Model extends CI_Model  {
 		return $data;
 	}
 	
+	/*Busca una factura en especifico*/
 	public function factura($id_factura) {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
@@ -57,6 +60,7 @@ class showme_Model extends CI_Model  {
 		return $data;
 	}
 	
+	/*Busca todos los conceptos, suma de montos*/
 	public function conceptos() {
 		$query = $this->db->query('
 			select facturas.id_concepto, sum(monto) as monto, conceptos.descripcion as concepto from facturas 
@@ -68,6 +72,7 @@ class showme_Model extends CI_Model  {
 		return $data;
 	}
 	
+	/*Busca todos los legisladores, suma de montos*/
 	public function legisladores() {
 		$query = $this->db->query('
 			select facturas.id_legislador, sum(monto) as monto, legisladores.nombre as legislador from facturas 
@@ -80,6 +85,7 @@ class showme_Model extends CI_Model  {
 		return $data;
 	}
 	
+	/*Top 5 de facturas por legiladores ordenados por monto*/
 	public function ranking_legisladores() {
 		$query = $this->db->query('
 			select facturas.id_legislador, sum(monto) as monto, legisladores.nombre as legislador from facturas 
@@ -92,10 +98,41 @@ class showme_Model extends CI_Model  {
 		return $data;
 	}
 	
+	/*Top 5 de facturas por conceptos ordenados por monto*/
 	public function ranking_conceptos() {
 		$query = $this->db->query('
 			select facturas.id_concepto, sum(monto) as monto, conceptos.descripcion as concepto from facturas 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto group by id_concepto order by monto desc limit 5'
+		);
+		
+		$data = $query->result_array();
+		
+		return $data;
+	}
+	
+	/*Busca todas las facturas de un concepto en especifico*/
+	public function concepto($id_concepto) {
+		$query = $this->db->query('
+			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
+			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
+			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
+			left join legisladores ON facturas.id_legislador=legisladores.id_legislador where id_concepto='. $id_concepto
+		);
+		
+		$data = $query->result_array();
+		
+		return $data;
+	}
+	
+	/*Busca todas las facturas de un legislador en especifico*/
+	public function legislador($id_legislador) {
+		$query = $this->db->query('
+			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
+			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
+			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
+			left join legisladores ON facturas.id_legislador=legisladores.id_legislador where id_legislador='. $id_legislador
 		);
 		
 		$data = $query->result_array();
