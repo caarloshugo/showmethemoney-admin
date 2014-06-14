@@ -104,8 +104,10 @@ class Admin extends CI_Controller {
 		$crud->display_as('id_concepto', 'Concepto');
 		$crud->set_relation('id_concepto', 'conceptos', 'descripcion');
 		
+		/*
 		$crud->display_as('id_legislador', 'Legislador');
 		$crud->set_relation('id_legislador', 'legisladores', 'nombre');
+		*/
 		
 		$crud->display_as('file_url_factura', 'Documento de la factura');
 		$crud->set_field_upload('file_url_factura', 'assets/uploads/files');
