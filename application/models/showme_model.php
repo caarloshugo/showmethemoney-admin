@@ -35,6 +35,7 @@ class showme_Model extends CI_Model  {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
 			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join subvensiones ON facturas.id_subvension=subvensiones.id_subvension 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
 			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
 			left join legisladores ON facturas.id_legislador=legisladores.id_legislador'
@@ -50,6 +51,7 @@ class showme_Model extends CI_Model  {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
 			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join subvensiones ON facturas.id_subvension=subvensiones.id_subvension 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
 			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
 			left join legisladores ON facturas.id_legislador=legisladores.id_legislador where id_factura='. $id_factura
@@ -115,6 +117,7 @@ class showme_Model extends CI_Model  {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
 			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join subvensiones ON facturas.id_subvension=subvensiones.id_subvension 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
 			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
 			left join legisladores ON facturas.id_legislador=legisladores.id_legislador where facturas.id_concepto='. $id_concepto
@@ -130,6 +133,7 @@ class showme_Model extends CI_Model  {
 		$query = $this->db->query('
 			select facturas.*, conceptos.descripcion as concepto, fecha_solicitud, file_url_solicitud, file_url_respuesta, 
 			solicitudes.folio as folio_solicitud, legisladores.nombre as legislador, id_partido from facturas 
+			left join subvensiones ON facturas.id_subvension=subvensiones.id_subvension 
 			left join conceptos ON facturas.id_concepto=conceptos.id_concepto
 			left join solicitudes ON facturas.id_solicitud=solicitudes.id_solicitud 
 			left join legisladores ON facturas.id_legislador=legisladores.id_legislador where facturas.id_legislador='. $id_legislador
