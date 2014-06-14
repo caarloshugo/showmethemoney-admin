@@ -103,9 +103,7 @@ class Admin extends CI_Controller {
 		/*Relaciones n_n*/
 		$crud->display_as('id_concepto', 'Categoría');
 		$crud->set_relation('id_concepto', 'conceptos', 'descripcion');
-		
-		
-	
+
 		/*
 		$crud->display_as('id_legislador', 'Legislador');
 		$crud->set_relation('id_legislador', 'legisladores', 'nombre');
@@ -121,7 +119,8 @@ class Admin extends CI_Controller {
 		
 		/*Columnas(Vista), campos y campos obligatorios*/
 		$crud->columns('id_factura', 'fecha_factura', 'folio', 'monto', 'id_concepto', 'detalle', 'rfc', 'razon_social');
-		$crud->unset_fields("id_legislador"):
+		$crud->unset_fields('id_legislador');
+		
 		$crud->required_fields('folio', 'monto', 'rfc', 'id_solicitud');
 		
 		$output = $crud->render();
