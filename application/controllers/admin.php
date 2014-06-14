@@ -104,7 +104,7 @@ class Admin extends CI_Controller {
 		$crud->display_as('id_concepto', 'Categoría');
 		$crud->set_relation('id_concepto', 'conceptos', 'descripcion');
 
-		$crud->display_as('id_subvension', 'subvensiones');
+		$crud->display_as('id_subvension', 'Subvensiones');
 		$crud->set_relation('id_subvension', 'subvensiones', 'nombre');
 		
 		$crud->display_as('file_url_factura', 'Documento de la factura');
