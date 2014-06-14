@@ -101,9 +101,12 @@ class Admin extends CI_Controller {
 		$crud->set_subject('Facturas');
 		
 		/*Relaciones n_n*/
-		$crud->display_as('id_concepto', 'Concepto');
+		$crud->display_as('id_concepto', 'Categoría');
 		$crud->set_relation('id_concepto', 'conceptos', 'descripcion');
 		
+		$crud->display_as('concepto', 'Concepto');
+		
+		$crud->unset_fields("id_legislador"):
 		/*
 		$crud->display_as('id_legislador', 'Legislador');
 		$crud->set_relation('id_legislador', 'legisladores', 'nombre');
